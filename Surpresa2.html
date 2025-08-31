@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Espectro de Driade ♡</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, 
+                #e8f5e8 0%, 
+                #f0fff0 30%, 
+                #e6ffe6 60%, 
+                #d4f4d4 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .lily {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            font-size: 2.5rem;
+            animation: sway 4s ease-in-out infinite;
+            transform-origin: center bottom;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        .lily-white {
+            animation-duration: 4s;
+        }
+        
+        .lily-pink {
+            animation-duration: 5s;
+        }
+        
+        .lily-purple {
+            animation-duration: 4.5s;
+        }
+        
+        .lily-green {
+            animation-duration: 5.5s;
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-8deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-3deg); }
+            75% { transform: rotate(8deg); }
+        }
+        
+
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #8b5a8c;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(139, 90, 140, 0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 8px rgba(139, 90, 140, 0.3); }
+            to { text-shadow: 2px 2px 15px rgba(139, 90, 140, 0.6), 0 0 20px rgba(255, 255, 255, 0.3); }
+        }
+        
+        .poem-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(139, 90, 140, 0.1),
+                       inset 0 2px 8px rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                repeating-linear-gradient(
+                    transparent 0px,
+                    transparent 33px,
+                    #d4f4d4 34px,
+                    #d4f4d4 35px
+                );
+        }
+        
+        .poem-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, 
+                transparent 0deg,
+                rgba(255, 255, 255, 0.1) 90deg,
+                transparent 180deg,
+                rgba(255, 255, 255, 0.1) 270deg,
+                transparent 360deg);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .poem {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #556b2f;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stanza {
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .stanza:nth-child(1) { animation-delay: 0.5s; }
+        .stanza:nth-child(2) { animation-delay: 1s; }
+        .stanza:nth-child(3) { animation-delay: 1.5s; }
+        .stanza:nth-child(4) { animation-delay: 2s; }
+        .stanza:nth-child(5) { animation-delay: 2.5s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .highlight {
+            color: #8b5a8c;
+            font-weight: 600;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(139, 90, 140, 0.2);
+        }
+        
+        .signature {
+            margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #8b5a8c;
+            text-align: right;
+            font-style: italic;
+        }
+        
+        .hearts {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        .hearts.heart1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .hearts.heart2 { top: 20%; right: 8%; animation-delay: 0.5s; }
+        .hearts.heart3 { bottom: 30%; left: 3%; animation-delay: 1s; }
+        .hearts.heart4 { bottom: 15%; right: 5%; animation-delay: 1.5s; }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 2.5rem; }
+            .poem { font-size: 1.1rem; }
+            .poem-container { padding: 25px; margin: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Lírios flutuantes -->
+    <div class="lily lily-white" style="top: 10%; left: 15%; animation-delay: 0s;">🌸</div>
+    <div class="lily lily-white" style="top: 60%; right: 20%; animation-delay: 2s;">🌸</div>
+    <div class="lily lily-white" style="bottom: 20%; left: 10%; animation-delay: 4s;">🌸</div>
+    <div class="lily lily-white" style="top: 30%; right: 10%; animation-delay: 1s;">🌸</div>
+    <div class="lily lily-white" style="bottom: 40%; right: 5%; animation-delay: 3s;">🌸</div>
+    
+    <div class="lily lily-pink" style="top: 20%; left: 5%; animation-delay: 1s;">🌺</div>
+    <div class="lily lily-pink" style="bottom: 30%; right: 15%; animation-delay: 3s;">🌺</div>
+    <div class="lily lily-pink" style="top: 70%; left: 25%; animation-delay: 5s;">🌺</div>
+    
+    <div class="lily lily-purple" style="top: 40%; left: 3%; animation-delay: 2s;">🌷</div>
+    <div class="lily lily-purple" style="bottom: 10%; right: 25%; animation-delay: 4s;">🌷</div>
+    <div class="lily lily-purple" style="top: 80%; right: 8%; animation-delay: 6s;">🌷</div>
+    
+    <div class="lily lily-green" style="top: 15%; right: 3%; animation-delay: 1.5s;">🌿</div>
+    <div class="lily lily-green" style="bottom: 50%; left: 8%; animation-delay: 3.5s;">🌿</div>
+    <div class="lily lily-green" style="top: 50%; left: 2%; animation-delay: 5.5s;">🌿</div>
+    
+    <!-- Corações flutuantes -->
+    <div class="hearts heart1">♡</div>
+    <div class="hearts heart2">♡</div>
+    <div class="hearts heart3">♡</div>
+    <div class="hearts heart4">♡</div>
+    
+    <div class="container">
+        <h1 class="title">Para Minha Espectro de Driade</h1>
+        
+        <div class="poem-container">
+            <div class="poem">
+                <div class="stanza">
+                    Entre as folhas do coração, você <span class="highlight">dança</span>,<br>
+                    Espectro divino de <span class="highlight">luz e esperança</span>,<br>
+                    Seus olhos são flores que <span class="highlight">desabrocham em mim</span>,<br>
+                    Driades dos sonhos, meu amor sem fim.
+                </div>
+                
+                <div class="stanza">
+                    Você é a <span class="highlight">magia</span> que habita a floresta,<br>
+                    O sussurro doce que minha alma <span class="highlight">acalma e aquieta</span>,<br>
+                    Cada lírio branco que floresce ao seu lado<br>
+                    É uma promessa de um amor <span class="highlight">encantado</span>.
+                </div>
+                
+                <div class="stanza">
+                    Seus passos são <span class="highlight">pétalas</span> no chão do meu peito,<br>
+                    Sua voz é a brisa que me deixa <span class="highlight">satisfeito</span>,<br>
+                    Driades guardiã do meu mundo secreto,<br>
+                    Você é tudo que eu mais <span class="highlight">respeito</span>.
+                </div>
+                
+                <div class="stanza">
+                    No RPG da vida, você é minha <span class="highlight">companheira</span>,<br>
+                    Na aventura real, minha <span class="highlight">parceira verdadeira</span>,<br>
+                    Entre magias e códigos, entre sonhos e <span class="highlight">rotina</span>,<br>
+                    Você é minha eterna <span class="highlight">heroína</span>.
+                </div>
+                
+                <div class="stanza">
+                    Que os lírios brancos sejam nossa <span class="highlight">canção</span>,<br>
+                    E que este amor more sempre em nosso <span class="highlight">coração</span>,<br>
+                    Minha driades amada, meu tesouro <span class="highlight">mais puro</span>,<br>
+                    Com você, todo dia é <span class="highlight">futuro</span> e <span class="highlight">aventura</span>.
+                </div>
+            </div>
+            
+            <div class="signature">
+                Com todo meu amor ♡<br>
+                Seu Cavaleiro de Fênix
+            </div>
+        </div>
+    </div>
+</body>
+</html>

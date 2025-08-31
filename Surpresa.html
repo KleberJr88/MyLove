@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Poema para minha Dríade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<link rel="stylesheet" href="Surpresa.css">
+
+    <div class="poema-container">
+        <h1> Para minha Dríade </h1>
+
+        <p>
+            Entre as raízes do bosque sagrado,<br>
+            onde o vento canta segredos antigos,<br>
+            encontrei-te, doce Dríade encantada,<br>
+            com tua voz suave e teus passos amigos.
+        </p>
+
+        <p>
+            Tua presença é como um raio de sol<br>
+            atravessando folhas verdes ao amanhecer.<br>
+            És magia pura, és vida que floresce,<br>
+            és o motivo pelo qual eu quero viver.
+        </p>
+
+        <p>
+            Teus cabelos dançam como ramos ao vento,<br>
+            teus olhos brilham como estrelas no céu.<br>
+            E quando sorris, tudo se torna belo,<br>
+            até o silêncio se rende ao teu véu.
+        </p>
+
+        <p>
+            Entre lírios de mil cores me perco,<br>
+            mas são os brancos que me fazem sonhar.<br>
+            Pois em sua pureza encontro teu reflexo,<br>
+            meu refúgio, meu lar, meu doce amar.
+        </p>
+
+        <p>
+            Se és espectro, és o mais terno e gentil,<br>
+            guardiã das florestas, rainha do meu coração.<br>
+            Nenhuma escuridão pode vencer-te,<br>
+            porque em ti floresce a mais bela canção.
+        </p>
+
+        <p>
+            És musa, és ninfa, és poesia viva,<br>
+            és o abraço que me cura a dor.<br>
+            No jardim da minha alma és raiz eterna,<br>
+            minha Érica, minha Dríade, meu amor.
+        </p>
+
+        <p>
+            Que o tempo nos una como troncos entrelaçados,<br>
+            que nossos sonhos floresçam como campos em flor.<br>
+            Pois em cada lirio branco que nascer,<br>
+            escreverei teu nome, com todo meu amor.
+        </p>
+    </div>
+</body>
+           <button onclick="soltarLirios()">🌸 Fazer lírios florescerem 🌸</button>
+    <div id="lirio-container"></div>
+
+    <script>
+        function soltarLirios() {
+            const container = document.getElementById("lirio-container");
+            const flores = ["🤍","🌸","💮","🌺","🌷"]; 
+            for (let i = 0; i < 10; i++) {
+                const lirio = document.createElement("div");
+                lirio.classList.add("lirio");
+                lirio.textContent = flores[Math.floor(Math.random() * flores.length)];
+                lirio.style.left = Math.random() * 90 + "%";
+                container.appendChild(lirio);
+                setTimeout(() => lirio.remove(), 4000);
+            }
+        }
+
+        // Criar folhas e tulipas flutuando no fundo verde
+        const emojis = ["🍃","🌷","🌿","🍀"];
+        for (let i = 0; i < 20; i++) {
+            const flor = document.createElement("div");
+            flor.classList.add("flor-flutuante");
+            flor.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            flor.style.left = Math.random() * 100 + "vw";
+            flor.style.animationDuration = 10 + Math.random() * 10 + "s";
+            document.body.appendChild(flor);
+        }
+    </script>
+</body>
+</html>
