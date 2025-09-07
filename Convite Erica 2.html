@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -56,40 +56,19 @@
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
         }
 
-        .heart-icon {
+        .heart-emoji {
             display: inline-block;
-            width: 30px;
-            height: 30px;
-            position: relative;
+            font-size: 30px;
             animation: heartbeat 1.5s ease-in-out infinite;
-            margin-left: 10px;
-        }
-
-        .heart-icon::before,
-        .heart-icon::after {
-            content: '';
-            width: 26px;
-            height: 40px;
-            position: absolute;
-            left: 15px;
-            top: 0;
-            background: red;
-            border-radius: 50px 50px 0 0;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-        }
-
-        .heart-icon::after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
+            margin-left: 5px;
         }
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
+            20% { transform: scale(1.2); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.15); }
+            80% { transform: scale(1); }
             100% { transform: scale(1); }
         }
 
@@ -145,82 +124,83 @@
 
         .tulips-container {
             position: fixed;
-            bottom: 0;
+            bottom: 10px;
             left: 0;
             width: 100%;
-            height: 200px;
-            overflow: hidden;
+            height: 120px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 0 10px;
             z-index: 1;
         }
 
-        .tulip {
-            position: absolute;
-            bottom: 0;
-            width: 40px;
-            height: 150px;
-        }
-
-        .tulip-flower {
-            width: 40px;
-            height: 45px;
-            background: linear-gradient(135deg, #ffb3d1 0%, #ff69b4 100%);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            position: relative;
-            box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.5);
-        }
-
-        .tulip-flower::before,
-        .tulip-flower::after {
-            content: '';
-            position: absolute;
-            background: linear-gradient(135deg, #ffb3d1 0%, #ff69b4 100%);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            width: 35px;
-            height: 40px;
-            top: -5px;
-        }
-
-        .tulip-flower::before {
-            left: -12px;
-            transform: rotate(-25deg);
-        }
-
-        .tulip-flower::after {
-            right: -12px;
-            transform: rotate(25deg);
-        }
-
-        .tulip-stem {
-            width: 4px;
-            height: 100px;
-            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
-            margin: 0 auto;
-            position: relative;
-            top: -10px;
-        }
-
-        .tulip-leaf {
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            background: linear-gradient(135deg, #4CAF50, #66BB6A);
-            border-radius: 0 100% 0 100%;
-            top: 40px;
-            left: -8px;
-            transform: rotate(-20deg);
-        }
-
-        .tulip:nth-child(odd) {
+        .tulip-emoji {
+            font-size: 50px;
+            display: inline-block;
             animation: sway 3s ease-in-out infinite;
+            transform-origin: bottom center;
         }
 
-        .tulip:nth-child(even) {
-            animation: sway 3s ease-in-out infinite reverse;
+        .tulip-emoji:nth-child(odd) {
+            animation-delay: 0s;
+            font-size: 55px;
+        }
+
+        .tulip-emoji:nth-child(even) {
+            animation-delay: 1.5s;
+            font-size: 48px;
+        }
+
+        .tulip-emoji:nth-child(3n) {
+            animation-delay: 0.7s;
+            font-size: 52px;
         }
 
         @keyframes sway {
-            0%, 100% { transform: rotate(-2deg); }
-            50% { transform: rotate(2deg); }
+            0%, 100% { 
+                transform: rotate(-5deg) scale(1);
+            }
+            25% {
+                transform: rotate(3deg) scale(1.05);
+            }
+            50% { 
+                transform: rotate(5deg) scale(1);
+            }
+            75% {
+                transform: rotate(-3deg) scale(1.05);
+            }
+        }
+
+        /* Animação de pulsar para algumas tulipas */
+        .tulip-emoji.pulse {
+            animation: sway-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes sway-pulse {
+            0%, 100% { 
+                transform: rotate(-5deg) scale(1);
+            }
+            25% {
+                transform: rotate(3deg) scale(1.1);
+            }
+            50% { 
+                transform: rotate(5deg) scale(1);
+            }
+            75% {
+                transform: rotate(-3deg) scale(1.1);
+            }
+        }
+
+        /* Grass decoration */
+        .grass {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, #4CAF50 0%, #66BB6A 50%, transparent 100%);
+            z-index: 0;
         }
 
         /* Responsividade */
@@ -237,6 +217,26 @@
                 font-size: 18px;
                 padding: 15px;
             }
+
+            .tulip-emoji {
+                font-size: 40px;
+            }
+
+            .tulip-emoji:nth-child(odd) {
+                font-size: 45px;
+            }
+
+            .tulip-emoji:nth-child(even) {
+                font-size: 38px;
+            }
+        }
+
+        /* Efeito de hover nas tulipas */
+        .tulip-emoji:hover {
+            animation-play-state: paused;
+            transform: scale(1.2) rotate(0deg);
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
     </style>
 </head>
@@ -244,7 +244,7 @@
     <div class="container">
         <div class="header">
             <h1>Duvidas no presente?</h1>
-            <h2>Aqui vai algumas ideias <span class="heart-icon"></span></h2>
+            <h2>Aqui vai algumas ideias <span class="heart-emoji">❤️</span></h2>
         </div>
         
         <div class="gift-suggestions">
@@ -266,39 +266,64 @@
         </div>
     </div>
 
+    <div class="grass"></div>
+    
     <div class="tulips-container">
-        <!-- Gerando tulipas dinamicamente com JavaScript -->
+        <span class="tulip-emoji">🌷</span>
+        <span class="tulip-emoji pulse">🌷</span>
+        <span class="tulip-emoji">🌷</span>
+        <span class="tulip-emoji pulse">🌷</span>
+        <span class="tulip-emoji">🌷</span>
+        <span class="tulip-emoji pulse">🌷</span>
+        <span class="tulip-emoji">🌷</span>
+        <span class="tulip-emoji">🌷</span>
+        <span class="tulip-emoji pulse">🌷</span>
+        <span class="tulip-emoji">🌷</span>
     </div>
 
     <script>
-        // Criar tulipas dinamicamente
+        // Adicionar mais tulipas dinamicamente baseado na largura da tela
         const tulipsContainer = document.querySelector('.tulips-container');
-        const numberOfTulips = Math.floor(window.innerWidth / 50);
+        const screenWidth = window.innerWidth;
         
-        for (let i = 0; i < numberOfTulips; i++) {
-            const tulip = document.createElement('div');
-            tulip.className = 'tulip';
-            tulip.style.left = `${i * 50 + Math.random() * 30}px`;
-            tulip.style.animationDelay = `${Math.random() * 2}s`;
-            
-            tulip.innerHTML = `
-                <div class="tulip-flower"></div>
-                <div class="tulip-stem">
-                    <div class="tulip-leaf"></div>
-                </div>
-            `;
-            
-            tulipsContainer.appendChild(tulip);
+        // Limpar tulipas existentes se a tela for muito pequena
+        if (screenWidth < 500) {
+            tulipsContainer.innerHTML = '';
+            const numberOfTulips = Math.floor(screenWidth / 60);
+            for (let i = 0; i < numberOfTulips; i++) {
+                const tulip = document.createElement('span');
+                tulip.className = i % 2 === 0 ? 'tulip-emoji' : 'tulip-emoji pulse';
+                tulip.textContent = '🌷';
+                tulipsContainer.appendChild(tulip);
+            }
         }
 
-        // Adicionar efeito de parallax suave ao mover o mouse
+        // Adicionar efeito de interação ao clicar nas tulipas
+        document.querySelectorAll('.tulip-emoji').forEach(tulip => {
+            tulip.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.classList.toggle('pulse');
+                }, 100);
+            });
+        });
+
+        // Efeito parallax suave ao mover o mouse
         document.addEventListener('mousemove', (e) => {
-            const tulips = document.querySelectorAll('.tulip');
+            const tulips = document.querySelectorAll('.tulip-emoji');
             const mouseX = e.clientX / window.innerWidth;
             
             tulips.forEach((tulip, index) => {
-                const offset = (mouseX - 0.5) * 10 * (index % 2 === 0 ? 1 : -1);
-                tulip.style.transform = `translateX(${offset}px)`;
+                const offset = (mouseX - 0.5) * 15 * (index % 2 === 0 ? 1 : -1);
+                tulip.style.transform = `translateX(${offset}px) rotate(${offset/5}deg)`;
+            });
+        });
+
+        // Resetar posição quando o mouse sair
+        document.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.tulip-emoji').forEach(tulip => {
+                tulip.style.transform = '';
             });
         });
     </script>
